@@ -95,10 +95,8 @@ class TodoController extends Controller
         $request->validate([
             'completed' => 'required',
         ]);
-    
-        $todo->update([
-            'completed' => request('completed'),
-        ]);
+        
+        $todo->update($request->all());
         return redirect('/');
     }
 
@@ -113,6 +111,5 @@ class TodoController extends Controller
         $todo->delete();
     
         return redirect('/');
-        // dd($todo) ;
     }
 }

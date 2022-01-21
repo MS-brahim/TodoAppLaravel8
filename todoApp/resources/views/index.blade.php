@@ -37,13 +37,19 @@
                         <tr>
                             <td>{{ $todo->name }}</td>
                             <td>
-                                <form action="/{{ $todo->id }}" method="POST">
+                                <form action="/valid/{{ $todo->id }}" method="POST">
                                     @method('PUT')
                                     @csrf
                                     @if($todo->completed==0)
-                                    <h6> <button type="submit" value="1" class="badge badge-warning">Loading</button></h6>
+                                    <h6> 
+                                        <input type="hidden" name="completed" value="{{$todo->id}}">
+                                        <button type="submit" name="completed" value="1" class="badge badge-warning">Loading</button>
+                                    </h6>
                                     @else
-                                    <h6> <button type="submit" class="badge badge-success" value="0">Completed</button></h6>
+                                    <h6> 
+                                        <input type="hidden" name="completed" value="{{$todo->id}}">
+                                        <button type="submit" name="completed" value="0" class="badge badge-success">Completed</button>
+                                    </h6>
                                     @endif
                                 </form>
                                 

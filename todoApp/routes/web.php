@@ -18,4 +18,4 @@ Route::get('/', [TodoController::class, 'index']);
 Route::delete('/{todo}', [TodoController::class, 'destroy']);
 Route::post('/create', [TodoController::class, 'store']);
 Route::put('/{todo}', [TodoController::class, 'update']);
-// Route::get('/2', TodoController::class, 'destroy');
+Route::put('/valid/{todo}', [TodoController::class, 'completed']);
